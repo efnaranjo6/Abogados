@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'tipocaso',
     'usuario',
     'usuariocaso',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

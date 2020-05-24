@@ -12,7 +12,7 @@ class Persona(models.Model):
         self.nombrePersona=self.nombrePersona
         self.apellidoPersona= self.apellidoPersona
         self.cedulaPersona= self.cedulaPersona
-        self.correoPersona= self.correoPersona
+
         super(Persona,self).save()
 class Meta:
       verbose_name_plural='Persoinas'
