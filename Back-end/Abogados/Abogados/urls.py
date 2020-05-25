@@ -25,4 +25,5 @@ urlpatterns = [
     path('Detalleusuario/', include(('detalleusuario.urls','detalleusuario'), namespace='detalleusuario')),
     path('Detallecaso/', include(('detallecaso.urls','detallecaso'), namespace='detallecaso')),
     path('Caso/', include(('caso.urls', 'caso'), namespace='caso')),
+    path('Usuariocaso/', include(('usuariocaso.urls','usuariocaso'), namespace='usuariocaso')),
 ]
