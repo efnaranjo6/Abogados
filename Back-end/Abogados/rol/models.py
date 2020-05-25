@@ -2,13 +2,12 @@ from django.db import models
 
 # Create your models here.
 class Rol(models.Model):
-
+  nombreRol = models.CharField(max_length=200)
   def __str__(self):
-    nombre = models.CharField(max_length=200)
-    return '{}'.format(self.nombre)
+      return '{}'.format(self.nombreRol)
   def save(self):
-      self.nombre=self.nombre
+      self.nombreRol=self.nombreRol
       super(Rol,self).save()
 
 class Meta:
-      verbose_name_plural='Rol'
+      verbose_name_plural='Roles'
