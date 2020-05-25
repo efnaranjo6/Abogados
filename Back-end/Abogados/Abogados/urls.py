@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Persona/', include(('persona.urls', 'persona'), namespace='persona')),
     path('Rol/', include(('rol.urls', 'rol'), namespace='Rol')),
+    path('Tiposcasos/', include(('tipocaso.urls', 'Tipocaso'), namespace='Tipocaso')),
 ]
