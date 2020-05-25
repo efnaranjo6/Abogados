@@ -5,9 +5,8 @@ from rol.models import Rol
 
 class Detalleusuario(models.Model):
     Usuario=models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    Rol=models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    from usuario.models import Usuario
-      def __str__(self):
+    Rol = models.ForeignKey(Rol, on_delete=models.CASCADE)
+    def __str__(self):
         return '{}'.format(self.Usuario)
     def save(self):
         self.Usuario=self.Usuario
