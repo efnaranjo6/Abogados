@@ -9,6 +9,7 @@ class Usuario(models.Model):
     def __str__(self):
         return '{}'.format(self.correoUsario)
     def save(self):
+        self.Persona = self.Persona
         self.correoUsario=self.correoUsario
         self.contrasenaUsuario= self.contrasenaUsuario
         super(Usuario,self).save()
