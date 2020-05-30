@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .cja_Abogado {
   /* background-color: red; */
   padding: 80px;
@@ -28,4 +29,10 @@
 .inner_Servicios {
   /* background-color: red; */
   margin-bottom: 80px;
+=======
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+>>>>>>> 1c1f7919cad2e2e0c636d771455b970e21831bfc
 }

@@ -98,19 +98,52 @@
 @media only screen and (max-width: 600px) {
 
     .inner_Mision img{
-        width: 480px;
-        height: 480px;
+        width: 380px;
+        height: 380px;
         margin-top: 30px;
     }
 
     .cja_registroHome
     {
-        margin-top: 500px;
+       
+    }
+    .inner_RegistroHome
+    {
+        margin-top: 400px;
     }
     .cja_registroHome img{
-        width: 80px;
-        height: 100px;
-        position: absolute;
-        top: -80px;
+  
+        display: none;
     }
+    .cja_RegistroTxt h3{
+        font-size: 25px;
+    }
+    .cja_RegistroTxt
+    {
+    /* background-color: red; */
+    position: absolute;
+    width: 100%;
+    margin: 100px 0;
+    text-align: center;
+    }
+    .cja_ImgVision img
+{
+    max-width: 450px;
+    max-height: 480px;
+}
+.inner_Mision{
+    background-color: #202B34;
+    margin-top: 60px;
+    height: 500px;
+    width: 100%;
+}
+.inner_Mision p{
+    color: white;
+    font-size: 25px;
+}
+.inner_Vision p{
+    
+    font-size: 20px;
+    margin-top: 40px;
+}
 }
