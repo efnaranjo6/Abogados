@@ -11,7 +11,27 @@
     <app-menu></app-menu>
     <app-home></app-home>
     <app-servicios></app-servicios>
-    <app-abogados></app-abogados>
+        <div class="row inner_abogados">
+          <div class="cja_tituloAbogados col-sm-12">
+            <h2>
+              Nuestros Abogados
+            </h2>
+          </div>
+        </div>
+        <section class="inner_Abogados">
+            <div class=" row ">
+                <app-abogados [data]="abogado" *ngFor="let abogado of Abogados"
+                  class="cja_TiposAbogado col-sm-12 col-md-4">
+                </app-abogados>
+               
+            </div>
+           
+        </section>
+    
+      
+           
+    
+      
     <app-footer></app-footer>
 </div>
 

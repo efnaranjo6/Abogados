@@ -1,48 +1,16 @@
-.cja_Abogado
-{
-    /* background-color: red; */
-    padding: 80px ;
-}
-.cja_Abogado img{
 
+img{
     width: 420px;
     height: 600px;
     margin-bottom: 30px;
 }
+ h2 {
+   color: #202B34;
+   font-size: 40px;
+   margin-left: 20px;
+ }
+ h4 {
+   color: #202B34;
+   margin-bottom: 25px;
+ }
 
-.cja_tituloAbogados{
-    margin: 50px 0;
-}
-.cja_tituloAbogados h2
-{
-    color: #202B34;
-    font-size: 40px;
-    margin-left: 20px;
-}
-
-.cja_TiposAbogado h4
-{
-    color: #202B34;
-    margin-bottom: 25px;
-}
-
-.inner_Servicios
-{
-    /* background-color: red; */
-    margin-bottom: 80px;
-}
-@media only screen and (max-width: 600px) {
-
-    .cja_Abogado img{
-
-        width: 360px;
-        height: 500px;
-        margin-bottom: 30px;
-    }
-    .cja_TiposAbogado p
-{
-    color: #202B34;
-    margin-bottom: 50px;
-}
-
-}

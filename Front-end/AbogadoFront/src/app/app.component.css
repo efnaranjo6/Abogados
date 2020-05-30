@@ -1,5 +1,13 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+.cja_Abogado {
+  /* background-color: red; */
+  padding: 80px;
+}
+
+.cja_tituloAbogados {
+  margin: 50px 0;
+}
+.inner_Servicios {
+  /* background-color: red; */
+  margin-bottom: 80px;
 }

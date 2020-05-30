@@ -12,6 +12,7 @@ import { PanelDinamicComponent } from './panel-dinamic/panel-dinamic.component';
 import { HomeComponent } from './home/home.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { AbogadosComponent } from './abogados/abogados.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AbogadosComponent } from './abogados/abogados.component';
    
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
