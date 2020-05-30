@@ -1,0 +1,36 @@
+.cja_tituloServicios{
+    margin: 50px 0;
+}
+.cja_tituloServicios h2
+{
+    color: #202B34;
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.cja_servicios
+{
+
+    padding: 100px;
+    
+}
+.cja_servicios img
+{
+   /* background-color: royalblue; */
+  width: 280px;
+  height: 280px;
+  margin-bottom: 35px;
+
+}
+.cja_servicios h4
+{
+    color: #202B34;
+    margin-bottom: 25px;
+}
+
+.inner_Servicios
+{
+    /* background-color: red; */
+    margin-bottom: 80px;
+}
+

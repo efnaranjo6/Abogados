@@ -1,27 +1,30 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-        <div class="col-lg-6">
-            <div class="float-left">
+  <nav class="navbar navbar-expand-lg ">
+<!-- 
+        <div class="float-left">
                 <app-images [url]="url"></app-images>
-                
-            </div>
-        </div>    
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-      <ul class="navbar-nav  float-right">
-        <li class="nav-item active mr-5">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active mr-5">
-          <a class="nav-link" href="#">Servicios</a>
-        </li>
-        <li class="nav-item active mr-5">
-             <a class="nav-link" href="#">Abogados</a>
-         </li>
-        <li class="nav-item active mr-5">
-          <a class="nav-link" href="#">Registrase</a>
-        </li>
-        <app-button></app-button>
-      </ul>
+        </div>  -->
+        <a href="#" class="navbar-brand"> Abogados</a>
+        <button class="menu_tog navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+          <ul class="navbar-nav ml-auto navbar_secciones">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Abogados</a>
+            </li>
+            <li class="nav-item">
+             <a href="#" class="button_menu">
+              <button type="button" class="btn btn-primary">Mi Cuenta</button>
+             </a>
+            </li>
+          </ul>
         </div>
   </nav>
 </header>

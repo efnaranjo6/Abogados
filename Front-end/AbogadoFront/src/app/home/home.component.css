@@ -1,0 +1,116 @@
+.inner_Mision{
+    background-color: #202B34;
+    margin-top: 60px;
+    height: 500px;
+}
+.inner_Mision img{
+    width: 580px;
+    height: 580px;
+}
+.inner_Mision h1{
+    color: #E8E81E;
+    margin-bottom: 20px;
+}
+.inner_Mision p{
+    color: white;
+}
+
+.cja_TxtMision, .cja_TxtVision{
+    /* background-color: red; */
+    height: 300px;
+    padding-left: 60px; 
+    padding-top: 30px;
+    margin-bottom: 150px;
+}
+.cja_TxtMision, .cja_TxtVision p{
+
+    font-size: 30px;
+    /* background-color: yellow;*/
+    max-width: 700px;
+    max-height: 300px;
+}
+.cja_ImgMision img {
+  float: right;
+  margin-right: 10px;
+}
+.cja_registroHome
+{
+  display: flex; 
+  height: 480px;
+  
+   
+}
+.cja_registroHome img{
+    width: 280px;
+    height: 500px;
+    position: absolute;
+    top: -80px;
+}
+.cja_RegistroTxt
+{
+    /* background-color: tomato; */
+    width: 800px;
+    height: 200px;
+    margin-left: 400px;
+    margin-top: 80px;
+    padding-top: 50px;
+ 
+}
+.cja_RegistroTxt h3{
+
+    color: #202B34;
+    font-size: 45px;
+    margin-bottom: 35px;
+}
+.btn
+{
+    background-color: transparent;
+    border: 2px solid #E8E81E;
+    color: #202B34; 
+    cursor: pointer;
+}
+.btn :hover
+{
+    background-color: #E8E81E;
+}
+.cja_ImgVision img
+{
+    max-width: 780px;
+    max-height: 580px;
+}
+
+@media only screen and (min-width: 600px) {
+    
+    .inner_Mision img{
+        width: 480px;
+        height: 480px;
+    }
+
+}
+@media only screen and (min-width: 1200px) {
+
+    .inner_Mision img{
+        width: 580px;
+        height: 580px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .inner_Mision img{
+        width: 480px;
+        height: 480px;
+        margin-top: 30px;
+    }
+
+    .cja_registroHome
+    {
+        margin-top: 500px;
+    }
+    .cja_registroHome img{
+        width: 80px;
+        height: 100px;
+        position: absolute;
+        top: -80px;
+    }
+}

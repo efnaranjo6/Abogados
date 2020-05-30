@@ -1,0 +1,24 @@
+.inner_footer
+{
+    background-color: #202B34;
+}
+.cja_Contacto
+{
+    padding-left: 50px;
+    padding-top: 60px;
+
+    /* background-color: aquamarine; */
+}
+.cja_Contacto h2
+{
+    color: #E8E81E;
+    font-size: 40px;
+    margin-bottom: 35px;
+}
+.cja_Contacto h4{
+    color: white;
+}
+.mapa_Google iframe{
+    float: right;
+    margin-right: 50px;
+}
