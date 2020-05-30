@@ -22,3 +22,21 @@
     float: right;
     margin-right: 50px;
 }
+
+@media only screen and (max-width: 600px) {
+
+    .inner_footer
+    {
+        background-color: #202B34;
+        width: 100%;
+    
+    }
+    
+    .mapa_Google iframe{
+       
+        margin: 10px;
+        width: 100%;
+    }
+
+
+}

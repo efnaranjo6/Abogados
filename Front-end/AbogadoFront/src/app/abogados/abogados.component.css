@@ -31,3 +31,18 @@
     /* background-color: red; */
     margin-bottom: 80px;
 }
+@media only screen and (max-width: 600px) {
+
+    .cja_Abogado img{
+
+        width: 360px;
+        height: 500px;
+        margin-bottom: 30px;
+    }
+    .cja_TiposAbogado p
+{
+    color: #202B34;
+    margin-bottom: 50px;
+}
+
+}
