@@ -18,12 +18,13 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Persona/', include(('persona.urls', 'persona'), namespace='persona')),
+    path('', include(('inicio.urls', 'inicio'), namespace='inicio')),
+    path('Persona/', include(('persona.urls', 'Persona'), namespace='Persona')),
     path('Rol/', include(('rol.urls', 'rol'), namespace='Rol')),
     path('Tiposcasos/', include(('tipocaso.urls', 'Tipocaso'), namespace='Tipocaso')),
     path('Usuario/', include(('usuario.urls', 'Usuario'), namespace='Usuario')),
-    path('Detalleusuario/', include(('detalleusuario.urls','detalleusuario'), namespace='detalleusuario')),
-    path('Detallecaso/', include(('detallecaso.urls','detallecaso'), namespace='detallecaso')),
-    path('Caso/', include(('caso.urls', 'caso'), namespace='caso')),
+    path('detalleusuario/', include(('detalleusuario.urls','detalleusuario'), namespace='Detalleusuario')),
+    path('Detallecaso/', include(('detallecaso.urls','detallecaso'), namespace='Detallecaso')),
+    path('Caso/', include(('caso.urls', 'caso'), namespace='Caso')),
     path('Usuariocaso/', include(('usuariocaso.urls','usuariocaso'), namespace='usuariocaso')),
 ]

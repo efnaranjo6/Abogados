@@ -1,0 +1,87 @@
+{% extends 'inicio.html' %}
+{% block contenido %}
+<div class="panel panel-primary">
+    <br>
+    <div class="panel-heading">
+        <a class="btn btn-outline-primary float-right" href="{% url 'Usuario:Insertar' %}">Agregar</a>
+        <h1>
+            Usuarios
+        <br>
+    </div>
+</div>
+<div class="panel-body col-md-10 container-md">
+    <div class="table-stats order-table ov-h">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th class="serial">id</th>
+                    <th>Descripccion</th>
+                    <th>Porcentaje</th>
+                    <th>caso</th>
+                    <th>usuario</th>
+                    <th>Acciones</th>
+                 </tr>
+            </thead>
+            {% csrf_token %}
+            <tbody>
+                {% for item in dc  %}
+                <tr>
+                    <td class="serial"> {{item.id}}</td>
+
+                    <td> <span class="name">{{item.descripccion}}</span> </td>
+                    <td>
+                        <span class="name">{{item.porcentaje}}</span>
+                    </td>
+                    <td>
+                       <span class="name">{{item.Caso}}</span>
+                    </td>
+                    <td>
+                        <span class="name">{{item.usuario}}</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                            onclick="url('{% url 'Detallecaso:Eliminar' item.id  %}','{% url 'Detallecaso:Editar' item.id  %}','{% url 'Detallecaso:Insertar' %}','{{item.id}}')">
+                            Acciones
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div> <!-- /.table-stats -->
+</div>
+<div class="modal"  id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Acciones para usuarios</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               <a id="editar" type="button" class="btn btn-success">Editar</a>
+               <a id="eliminar" type="button" class="btn btn-danger" >Eliminar</a>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function url(string1, string2, string3, string4){
+          alert(string4)
+        $("#eliminar").attr('href',string1)
+        $("#editar").attr('href',string2)
+
+       
+    }
+</script>
+{%endblock contenido%}

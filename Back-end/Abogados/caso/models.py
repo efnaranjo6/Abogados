@@ -1,21 +1,21 @@
 from django.db import models
-from usuario.models import Usuario
-from tipocaso.models import Tipocaso
 
+from tipocaso.models import Tipocaso
+from persona.models import Persona
 # Create your models here.
 
 
 class Caso(models.Model):
-    Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    Persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
     Tipocaso = models.ForeignKey(Tipocaso, on_delete=models.CASCADE)
     Estado = models.CharField(max_length=200)
 
 
     def __str__(self):
-        return '{}'.format(self.Usuario)
+        return '{}-{}-{}'.format(self.id,self.Tipocaso, self.Persona)
 
     def save(self):
-        self.Usuario = self.Usuario
+        self.Persona = self.Persona
         self.Estado = self.Estado
         self.Tipocaso = self.Tipocaso
         super(Caso, self).save()

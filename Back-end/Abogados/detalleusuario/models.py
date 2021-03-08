@@ -1,15 +1,15 @@
 from django.db import models
-from usuario.models import Usuario
+from usuario.models import usuario
 from rol.models import Rol
 # Create your models here.
 
 class Detalleusuario(models.Model):
-    Usuario=models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(usuario, on_delete=models.CASCADE)
     Rol = models.ForeignKey(Rol, on_delete=models.CASCADE)
     def __str__(self):
-        return '{}'.format(self.Usuario)
+        return '{}{}'.format(self.usuario, self.Rol)
     def save(self):
-        self.Usuario=self.Usuario
+        self.usuario = self.usuario
         self.Rol=self.Rol
         super(Detalleusuario,self).save()
 

@@ -1,18 +1,16 @@
 from django.db import models
 from persona.models import Persona
 # Create your models here.
-
-class Usuario(models.Model):
-    Persona=models.ForeignKey(Persona, on_delete=models.CASCADE)
-    correoUsario = models.CharField(max_length=200)
+class usuario(models.Model):
+    correoUsuario = models.CharField(max_length=200)
     contrasenaUsuario = models.CharField(max_length=200)
+    Persona = models.OneToOneField(Persona, on_delete=models.CASCADE)
     def __str__(self):
-        return '{}'.format(self.correoUsario)
+        return '{}'.format(self.correoUsuario)
     def save(self):
-        self.Persona = self.Persona
-        self.correoUsario=self.correoUsario
-        self.contrasenaUsuario= self.contrasenaUsuario
-        super(Usuario,self).save()
-
+      self.correoUsuario = self.correoUsuario
+      self.contrasenaUsuario = self.contrasenaUsuario
+      self.Persona = self.Persona
+      super(usuario, self).save()
 class Meta:
-      verbose_name_plural='Usuario'
+    verbose_name_plural = 'usuario'
