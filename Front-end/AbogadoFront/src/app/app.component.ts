@@ -19,7 +19,6 @@ export class AppComponent implements OnInit{
     .subscribe((datos: any[]) => this.Abogados = datos )
   }
 
-
-  
+ 
 
 }
