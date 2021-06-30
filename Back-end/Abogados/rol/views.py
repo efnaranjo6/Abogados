@@ -47,4 +47,10 @@ class Roleliminar(generic.DeleteView):
     template_name = 'deleter.html'
     form_class = rolform
     success_url = reverse_lazy("rol:roles")
+
+
+class Rolistload(generic.ListView):
+    model = Rol
+    template_name = 'loadrol.html'
+    context_object_name = 'rol'
 # Create your views here.

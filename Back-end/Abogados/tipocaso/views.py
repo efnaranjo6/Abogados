@@ -32,7 +32,7 @@ class Tipocasoeditar(generic.UpdateView):
     success_url = reverse_lazy("Tipocaso:tiposcasos")
 class Tipocasoeliminar(generic.DeleteView):
     model = Tipocaso
-    context_object_name = 'per'
+    context_object_name = 'tc'
     template_name = 'deletetc.html'
     form_class = tipocasoform
     success_url = reverse_lazy("Tipocaso:tiposcasos")

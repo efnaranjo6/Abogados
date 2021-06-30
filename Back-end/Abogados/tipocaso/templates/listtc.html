@@ -3,9 +3,9 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <br>
-        <a class="btn btn-outline-primary float-right" href="{% url 'Tipocaso:Insertar' %}">Agregar</a>
+        <a class="btn btn-outline-primary float-right" href="{% url 'Tipocaso:Insertar' %}"><i class="bi bi-plus-circle-fill" style="font-size: 1.2rem;"></i>&nbsp;Agregar</a>
         <h1>
-            tipo de casos
+           <i class="bi bi-file-ruled-fill" ></i>&nbsp; Tipo de casos
         </h1>
         <br>
     </div>
@@ -30,7 +30,7 @@
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                              onclick="url('{% url 'Tipocaso:Eliminar' item.id  %}','{% url 'Tipocaso:Editar' item.id  %}')">
-                             Acciones
+                             <i class="bi bi-wrench"></i>&nbsp; Acciones
                         </button>
                     </td>
                 </tr>
@@ -44,21 +44,14 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Acciones para usuarios</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <h5 class="modal-title" id="exampleModal">Acciones para tipo de casos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="Animation(0)">
+                    <i class="bi bi-x-square" style="font-size: 2rem;"></i>
                 </button>
             </div>
             <div class="modal-body">
-
-
-                <a id="editar" type="button" class="btn btn-success">Editar</a>
-                <a id="eliminar" type="button" class="btn btn-danger" href="">Eliminar</a>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-
+                <a id="editar" type="button" class="btn btn-success"><i class="bi bi-pencil-square"></i> &nbsp;Editar</a>
+                <a id="eliminar" type="button" class="btn btn-danger" href=""><i class="bi bi-trash-fill"></i> &nbsp;Eliminar</a>
             </div>
         </div>
     </div>
@@ -67,7 +60,7 @@
     function url(string1, string2) {
         $("#eliminar").attr('href', string1)
         $("#editar").attr('href', string2)
-
+        Animation(250)
     }
 </script>
 {%endblock contenido%}

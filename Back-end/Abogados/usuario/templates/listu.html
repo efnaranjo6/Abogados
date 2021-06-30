@@ -1,12 +1,13 @@
 {% extends 'inicio.html' %}
 {% block contenido %}
+<div class="contendhere">
 <div class="panel panel-primary">
     <br>
     <div class="panel-heading">
-        <a class="btn btn-outline-primary float-right" href="{% url 'Usuario:Insertar' %}">Agregar</a>
+        <a class="btn btn-outline-primary float-right" href="{% url 'Usuario:Insertar' %}"><i class="bi bi-plus-circle-fill" style="font-size: 1.2rem;"></i>&nbsp; Agregar</a>
         <h1>
-            Usuarios
-        <br>
+          <i class="bi bi-person-lines-fill"></i>&nbsp;   Usuarios
+        </h1>
     </div>
 </div>
 <div class="panel-body col-md-10 container-md">
@@ -32,8 +33,8 @@
                     </td>
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                            onclick="url('{% url 'Usuario:Eliminar' item.id  %}','{% url 'Usuario:Editar' item.id  %}','{% url 'detalleusuario:Insertar' %}','{{item.id}}')">
-                            Acciones
+                            onclick="url('{% url 'Usuario:Eliminar' item.id  %}','{% url 'Usuario:Editar' item.id  %}','{% url 'detalleusuario:Insertar' %}',{{item.id}})">
+                            <i class="bi bi-wrench"></i>&nbsp; Acciones
                         </button>
                     </td>
                 </tr>
@@ -50,30 +51,27 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Acciones para usuarios</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="Animation(0)">
+                    <i class="bi bi-x-square" style="font-size: 2rem;"></i>
                 </button>
             </div>
             <div class="modal-body">
-               <a id="editar" type="button" class="btn btn-success">Editar</a>
-               <a id="eliminar" type="button" class="btn btn-danger" >Eliminar</a>
-               <a id="agragarrol" type="button" class="btn btn-secondary" >Agregar rol</a>
+               <a id="editar" type="button" class="btn btn-success"><i class="bi bi-pencil-square"></i> &nbsp; Editar</a>
+               <a id="eliminar" type="button" class="btn btn-danger" > <i class="bi bi-trash-fill"></i> &nbsp; Eliminar</a>
+               <a id="agragarrol" type="button" class="btn btn-secondary" onclick="seccion()" > <i class="bi bi-toggles"></i> &nbsp; Agregar rol</a>
             </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              
-            </div>
-        </div>|
+        </div>
     </div>
 </div>
+</div>
 <script>
+  
     function url(string1, string2, string3, string4){
         $("#eliminar").attr('href',string1)
         $("#editar").attr('href',string2)
         $("#agragarrol").attr('href',string3)
-        sessionStorage['precio']=string4
-      
+        sessionStorage['idusuario']=string4
+       Animation(150);
     }
 
 </script>

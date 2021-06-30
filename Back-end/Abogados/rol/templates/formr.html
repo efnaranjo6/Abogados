@@ -1,11 +1,16 @@
 {% extends 'inicio.html' %}
 {% block contenido %}
+ <div id="fondor">
+ </div>
  <form method="post">
 <div class="modal" tabindex="-1" role="dialog" id="elminarModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Agregar rol</h5>
+                <h5 class="modal-title"><i class="bi bi-toggles" style="font-size: 2rem;"></i>&nbsp;  Rol</h5>
+                <a href="{% url 'Rol:roles' %}" class="close"  aria-label="Close">
+                    <i class="bi bi-x-square" style="font-size: 2rem;"></i>
+                </a>
             </div>
             <div class="modal-body">
                 <div class="card container-fluid" style="width: 18rem;">
@@ -20,14 +25,12 @@
                                
                             </div>
                          </div>
-                  
-        
                    </div>
                 </div>
             </div>
             <div class="modal-footer">
                  <button type="submit" class="btn btn-danger">
-                     Guardar
+                     <i class="bi bi-bookmark-plus-fill"></i>&nbsp; Guardar
                  </button>
             </div>
         </div>  

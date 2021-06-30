@@ -32,7 +32,7 @@
                     </td>
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                            onclick="url('{% url 'Detalleusuario:Eliminar' item.id  %}','{% url 'Detalleusuario:Editar' item.id  %}')">
+                            onclick="url('{% url 'Detalleusuario:Eliminar' item.id  %}','{% url 'Detalleusuario:Editar' item.id %}')">
                             Acciones
                         </button>
                     </td>
@@ -73,6 +73,7 @@
         $("#eliminar").attr('href',string1)
         $("#editar").attr('href',string2)
        $("#div1").load(string2);
+        
     }
 
 </script>
