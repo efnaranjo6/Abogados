@@ -7,7 +7,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Agregar Persona</h5>
+                <h5 class="modal-title"><i class="bi bi-person-plus-fill" style="font-size: 2rem;"></i>&nbsp; Persona</h5>
+                <a href="{% url 'Persona:personas' %}" class="close"  aria-label="Close">
+
+                    <i class="bi bi-x-square" style="font-size: 2rem;"></i>
+                   
+                </a>
             </div>
             <div class="modal-body">
                 <div class="card container-fluid" style="width: 18rem;">
@@ -19,7 +24,6 @@
                             <div class="panel-body">
                                 {% csrf_token %}
                                 {{form.as_p}}
-                               
                             </div>
                          </div>
                   
@@ -29,7 +33,7 @@
             </div>
             <div class="modal-footer">
                  <button type="submit" class="btn btn-danger">
-                     Guardar
+                     <i class="bi bi-bookmark-plus-fill"></i>&nbsp; Guardar
                  </button>
             </div>
         </div>  

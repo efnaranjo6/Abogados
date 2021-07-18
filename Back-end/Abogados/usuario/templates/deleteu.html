@@ -9,32 +9,30 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Eliminar Usuario</h5>
-               
+                <h5 class="modal-title"><i class="bi bi-person-lines-fill" style="font-size: 2rem;"></i>&nbsp; Eliminar Usuario</h5>
+                    <a href="{% url 'Usuario:usuarios' %}" class="close"  aria-label="Close">
+                        <i class="bi bi-x-square" style="font-size: 2rem;"></i>
+                    </a>
             </div>
             <div class="modal-body">
    
                   <div class="panel panel-default">
-                      <div class="panel-heading">
-                          Eliminar
-                      </div>
+           
                       <div class="panel-body">
                           {% csrf_token %}
-                          <div class="alert alert-succes">
-                      
-                           
-                                 <a href="{% url 'Usuario:usuarios' %}" class="btn btn-succes">
-                                     <span class="fa fa-undo"></span>
-                                 </a>
-                            
-                          </div>
+                            <h5>Correo del usuario</h5>
+                             <h6>- {{usu.correoUsuario}}</h6> 
+                
+                                <h5>Persona</h5>
+                               <h6>- {{usu.Persona}}</h6>  
+
                       </div>
         
             </div>
             <div class="modal-footer">
                    <button type="submit" class="btn btn-danger">
                       
-                       Eliminar
+                     <i class="bi bi-trash-fill"></i> &nbsp;   Eliminar
 
                    </button>
                

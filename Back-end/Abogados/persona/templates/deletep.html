@@ -6,27 +6,34 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Eliminar Persona</h5>
+                    <h5 class="modal-title"><i class="bi bi-trash-fill" style="font-size: 2rem;"></i> &nbsp;Eliminar persona</h5>
+                     <a href="{% url 'Persona:personas' %}" class="close"  aria-label="Close">
+                        <i class="bi bi-x-square" style="font-size: 2rem;"></i>
+                    </a>
                 </div>
                 <div class="modal-body">
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Eliminar
+
                         </div>
                         <div class="panel-body">
                             <form method="post">
-                            {% csrf_token %}
+                            {% csrf_token %} 
+                            <h5>Nombre de la persona</h5>
+                             <h6>- {{per.nombrePersona}}
+                                {{per.apellidoPersona}}</h6> 
+                                <br>
+                                <h5>Numero de identificacion</h5>
+                               <h6>- {{per.cedulaPersona}}</h6>  
                             <div class="alert alert-succes">
-                                <a href="{% url 'Persona:personas' %}" class="btn btn-succes">
-                                    <span class="fa fa-undo"></span>
-                                </a>
+                            
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-danger">
-                            Eliminar
+                          <i class="bi bi-trash-fill"></i> &nbsp;  Eliminar
                         </button>
                     </div>
                     </form>

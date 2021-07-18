@@ -5,13 +5,14 @@ from .models import Detalleusuario
 class detalleusuarioform(forms.ModelForm):
     class Meta:
         model = Detalleusuario
-        fields = ['usuario', 'Rol']
-        labels = {'usuario': 'Seleccione la persona ',
+        fields = ['Rol', 'usuario']
+        labels = {
                   'Rol': 'Seleccione un rol ',
-                
+                  'usuario': 'Seleccione un usuario '
                   }
-        widget = {'usuario': forms.TextInput(),
+        widget = {
                   'Rol': forms.TextInput(),
+                  'usuario': forms.TextInput(),
                   }
 
     def __init__(self, *args, **kwargs):

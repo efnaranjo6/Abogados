@@ -1,0 +1,49 @@
+
+{% block contenido %}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <br>
+        <a class="btn btn-outline-primary float-right" href="{% url 'Rol:Insertar' %}"><i class="bi bi-plus-circle-fill" style="font-size: 1.2rem;"></i>&nbsp;Agregar</a>
+        <h1>
+           <i class="bi bi-toggles"></i>&nbsp; Rol
+        </h1>
+        <br>
+    </div>
+</div>
+<div class="panel-body col-md-10 container-md">
+    <div class="table-stats order-table ov-h">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th class="serial">ID</th>
+                    <th class="serial">Nombre</th>
+                    <th>Acciones</th>
+                 </tr>
+            </thead>
+            {% csrf_token %}
+            <tbody>
+                {% for item in rol  %}
+                <tr>
+                    <td class="serial"> {{item.id}}</td>
+                    <td> <span class="name">{{item.nombreRol}}</span></td>
+                   
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                             onclick="url('{% url 'Rol:Eliminar' item.id  %}','{% url 'Rol:Editar' item.id  %}')">
+                             <i class="bi bi-wrench"></i>&nbsp; Acciones
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div> <!-- /.table-stats -->
+</div>
+<script>
+    function url(string1, string2) {
+        $("#eliminar").attr('href', string1)
+        $("#editar").attr('href', string2)
+    }
+</script>
+{%endblock contenido%}

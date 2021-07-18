@@ -24,7 +24,9 @@ class DetallecasoSList(APIView):
 class Detallecasoview(generic.ListView):
     model = Detallecaso
     template_name = 'listdc.html'
+    queryset = Detallecaso.objects.all()
     context_object_name = 'dc'
+    
 
 
 class Detallecasoinsertar(generic.CreateView):

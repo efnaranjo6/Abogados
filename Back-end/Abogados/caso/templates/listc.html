@@ -4,11 +4,11 @@
     <br>
     <div class="panel-heading">
 
-        <a class="btn btn-outline-primary float-right" href="{% url 'Caso:Insertar' %}">Agregar caso</a>
-                <a class="btn btn-outline-info float-right mr-5" href="{% url 'Detallecaso:detallecasos' %}">Ver detalles </a>
+        <a class="btn btn-outline-primary float-right" href="{% url 'Caso:Insertar' %}"><i class="bi bi-plus-circle-fill " style="font-size: 1.2rem;"></i>&nbsp; Agregar caso</a>
+        
         <h1>
-            Casos
-        <br>
+           <i class="bi bi-bar-chart-steps"></i>&nbsp; Casos
+        </h1>
     </div>
 </div>
 <div class="panel-body col-md-10 container-md">
@@ -39,7 +39,8 @@
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                             onclick="url('{% url 'Caso:Eliminar' item.id  %}','{% url 'Caso:Editar' item.id  %}','{% url 'detallecaso:Insertar' %}','{{item.id}}')">
-                            Acciones
+                             <i class="bi bi-wrench"></i>&nbsp; Acciones
+                             
                         </button>
                     </td>
                 </tr>
@@ -56,37 +57,45 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Acciones para este caso</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="Animation(0)">
+                    <i class="bi bi-x-square" style="font-size: 2rem;"></i>
                 </button>
             </div>
             <div class="modal-body">
-               <a id="editar" type="button" class="btn btn-success">Editar</a>
-               <a id="eliminar" type="button" class="btn btn-danger" >Eliminar</a>
+               <a id="editar" type="button" class="btn btn-success"><i class="bi bi-pencil-square"></i> &nbsp; Editar</a>
+               <a id="eliminar" type="button" class="btn btn-danger" ><i class="bi bi-trash-fill"></i> &nbsp; Eliminar</a>
                     <div class=" btn-group  dropright">
                         <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Detalle del caso</button>
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-list-ol"></i>&nbsp; Detalle del caso</button>
                         <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton">
                             <a class="btn btn-outline-danger btn-block "
-                                href="{% url 'Detallecaso:Insertar' %}" > Agregar detalle</a>
-                           
+                                href="{% url 'Detallecaso:Insertar' %}" ><i class="bi bi-plus-circle-fill"></i>&nbsp; Agregar detalle</a>
+                            <form action="{% url 'Caso:search_dt' %}" method="get">
+                                <div class="input-group col-md-12">
+                                    <input type="text" class="form-control" placeholder=" aqui" name="name" id="name">
+                                   <span></span>
+                                </div>
+                                <button type="submit" class="btn btn-outline-info btn-block mt-1" data-toggle="popover"><i class="bi bi-layout-text-sidebar-reverse"></i>&nbsp; Inspeccionar</button>
+                            </form>
                         </div>
                     </div>
             </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              
-            </div>
+
         </div>
     </div>
 </div>
+
+
 <script>
     function url(string1, string2, string3, string4){
         $("#eliminar").attr('href',string1)
         $("#editar").attr('href',string2)
         $("#agragarrol").attr('href',string3)
-        
+        document.getElementById("name").value =string4
+        $("#name").hide();
+        sessionStorage['idcaso']=string4;
+        Animation(250)
     }
 </script>
 {%endblock contenido%}

@@ -21,6 +21,7 @@ class Detalleusuarioview(generic.ListView):
     model = Detalleusuario
     template_name = 'listdtu.html'
     context_object_name = 'detu'
+    
 
 
 class Detalleusuarioinsertar(generic.CreateView):

@@ -6,7 +6,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Agregar tipo de casos</h5>
+                <h5 class="modal-title"><i class="bi bi-file-plus"  style="font-size: 2rem;"></i>Tipo de caso</h5>
+                <a href="{% url 'Tipocaso:tiposcasos' %}" class="close"  aria-label="Close">
+                   <i class="bi bi-x-square" style="font-size: 2rem;"></i>
+                </a>
             </div>
             <div class="modal-body">
                 <div class="card container-fluid" style="width: 18rem;">
@@ -28,7 +31,7 @@
             </div>
             <div class="modal-footer">
                  <button type="submit" class="btn btn-danger">
-                     Guardar
+                    <i class="bi bi-bookmark-plus-fill"></i>&nbsp; Guardar
                  </button>
             </div>
         </div>  
