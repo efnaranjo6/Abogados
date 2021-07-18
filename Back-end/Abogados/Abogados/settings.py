@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#uiv$12bs3(e6sza5bv6m76x5l3jsh_+vh_k++02*q#tb+eugx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -94,11 +94,11 @@ WSGI_APPLICATION = 'Abogados.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Abogados',
-        'USER':'user',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'postgres',
+        'USER':'ROOT',
+        'PASSWORD':'1234',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
@@ -142,3 +142,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+

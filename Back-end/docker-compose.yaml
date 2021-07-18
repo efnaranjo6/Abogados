@@ -1,0 +1,19 @@
+version: '3'
+services:
+    db:
+      image: postgres:latest
+      environment: 
+        - POSTGRES_DB=postgres
+        - POSTGRES_USER=rootcck
+        - POSTGRES_PASSWORD=1234
+
+    web:
+        build: .
+        command: python ./Abogados/manage.py migrate  
+        command: python ./Abogados/manage.py runserver 0.0.0.0:8000
+        volumes:
+              - .:/Abogados
+        ports:
+              - "8000:8000"
+        depends_on:
+              - db
