@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+
 import environ
 import os
 
@@ -16,7 +17,7 @@ from pathlib import Path
 env = environ.Env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '*').split()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -27,7 +28,7 @@ SECRET_KEY = '+9x51s_vilyzjarc*(t4*dpt^6g)*=^)b_08o=#fgi(mg)$z7t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DJANGO_DEBUG', default=False)
 
-ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOST',default=[]))
+#ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOST',default=[]))
 
 
 # Application definition
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'usuario',
     'usuariocaso',
     'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
@@ -63,14 +65,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Abogados.urls'
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:4200',
-]
-CORS_ORIGIN_REGEX_WHITELIST = [
-    'http://localhost:4200',
-]
+#CORS_ORIGIN_ALLOW_ALL = True
+#CORS_ALLOW_CREDENTIALS = True
+#CORS_ORIGIN_WHITELIST = [
+#    'http://localhost:4200',
+#]
+#CORS_ORIGIN_REGEX_WHITELIST = [
+#    'http://localhost:4200',
+#]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -127,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 

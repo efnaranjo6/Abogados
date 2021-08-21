@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import rolform
 # Create your views here.
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -19,38 +20,43 @@ class RolSList(APIView):
         return Response(data)  
 
 
-class Rolview(generic.ListView):
+class Rolview(LoginRequiredMixin,generic.ListView):
     model = Rol
     template_name = 'listr.html'
     context_object_name = 'rol'
+    login_url="inicio:login"
 
 
-class Rolinsertar(generic.CreateView):
+class Rolinsertar(LoginRequiredMixin,generic.CreateView):
     model = Rol
     context_object_name = 'rol'
     template_name = 'formr.html'
     form_class = rolform
     success_url = reverse_lazy("rol:roles")
+    login_url="inicio:login"
 
 
-class Roleditar(generic.UpdateView):
+class Roleditar(LoginRequiredMixin,generic.UpdateView):
     model = Rol
     context_object_name = 'rol'
     template_name = 'formr.html'
     form_class = rolform
     success_url = reverse_lazy("rol:roles")
+    login_url="inicio:login"
 
 
-class Roleliminar(generic.DeleteView):
+class Roleliminar(LoginRequiredMixin,generic.DeleteView):
     model = Rol
     context_object_name = 'rol'
     template_name = 'deleter.html'
     form_class = rolform
     success_url = reverse_lazy("rol:roles")
+    login_url="inicio:login"
 
 
-class Rolistload(generic.ListView):
+class Rolistload(LoginRequiredMixin,generic.ListView):
     model = Rol
     template_name = 'loadrol.html'
     context_object_name = 'rol'
+    login_url="inicio:login"
 # Create your views here.

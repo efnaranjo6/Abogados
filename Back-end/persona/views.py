@@ -4,7 +4,7 @@ from django.views import generic
 from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import personaform
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.http import JsonResponse
 from rest_framework.views import APIView
@@ -18,32 +18,37 @@ class PersonaSList(APIView):
         personas = Persona.objects.all()
         data = PersonaSeriales(personas, many=True).data
         return Response(data)
-class Personaview(generic.ListView):
+class Personaview(LoginRequiredMixin,generic.ListView):
     model = Persona
     template_name = 'listp.html'
     context_object_name = 'per'
-class Personainsertar(generic.CreateView):
+    login_url="inicio:login"
+class Personainsertar(LoginRequiredMixin,generic.CreateView):
     model = Persona
     context_object_name = 'per'
     template_name = 'formp.html'
     form_class = personaform
     success_url = reverse_lazy("Persona:personas")
-class Personaeditar(generic.UpdateView):
+    login_url="inicio:login"
+class Personaeditar(LoginRequiredMixin,generic.UpdateView):
     model = Persona
     context_object_name = 'per'
     template_name = 'formp.html'
     form_class = personaform
     success_url = reverse_lazy("Persona:personas")
-class Personaeliminar(generic.DeleteView):
+    login_url="inicio:login"
+class Personaeliminar(LoginRequiredMixin,generic.DeleteView):
     model = Persona
     context_object_name = 'per'
     template_name = 'deletep.html'
     form_class = personaform
     success_url = reverse_lazy("Persona:personas")
+    login_url="inicio:login"
 
 
-class Personalistload(generic.ListView):
+class Personalistload(LoginRequiredMixin,generic.ListView):
     model = Persona
     template_name = 'loadp.html'
     context_object_name = 'per'
+    login_url="inicio:login"
 # Create your views here.

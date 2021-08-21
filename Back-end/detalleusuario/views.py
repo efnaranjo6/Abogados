@@ -3,7 +3,7 @@ from django.views import generic
 from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import detalleusuarioform
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.http import JsonResponse
 from rest_framework.views import APIView
@@ -17,33 +17,36 @@ class DetalleusuarioSList(APIView):
         data = DetalleusuarioS(detallesu, many=True).data
         return Response(data)
 
-class Detalleusuarioview(generic.ListView):
+class Detalleusuarioview(LoginRequiredMixin,generic.ListView):
     model = Detalleusuario
     template_name = 'listdtu.html'
     context_object_name = 'detu'
-    
+    login_url="inicio:login"
 
 
-class Detalleusuarioinsertar(generic.CreateView):
+class Detalleusuarioinsertar(LoginRequiredMixin,generic.CreateView):
     model = Detalleusuario
     context_object_name = 'detu'
     template_name = 'formdtu.html'
     form_class = detalleusuarioform
     success_url = reverse_lazy("Detalleusuario:Detalleusuarios")
+    login_url="inicio:login"
 
 
-class Detalleusuarioeditar(generic.UpdateView):
+class Detalleusuarioeditar(LoginRequiredMixin,generic.UpdateView):
     model = Detalleusuario
     context_object_name = 'detu'
     template_name = 'formdtu.html'
     form_class = detalleusuarioform
+    login_url="inicio:login"
     success_url = reverse_lazy("Detalleusuario:Detalleusuarios")
 
-class Detalleusuarioeliminar(generic.DeleteView):
+class Detalleusuarioeliminar(LoginRequiredMixin,generic.DeleteView):
     model = Detalleusuario
     context_object_name = 'detu'
     template_name = 'deletedtu.html'
     form_class = form_class = detalleusuarioform
+    login_url="inicio:login"
     success_url = reverse_lazy("Detalleusuario:Detalleusuarios")
 # Create your views here.
 

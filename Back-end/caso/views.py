@@ -6,7 +6,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import casoform
 # Create your views here.
-
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -22,47 +23,49 @@ class CasoSList(APIView):
         return Response(data)
 
 
-class Casoview(generic.ListView):
+class Casoview(LoginRequiredMixin,generic.ListView):
     model = Caso
     template_name = 'listc.html'
     context_object_name = 'caso'
-
-class Casoinsertar(generic.CreateView):
+    login_url="inicio:login"
+class Casoinsertar(LoginRequiredMixin,generic.CreateView):
     model = Caso
     context_object_name = 'caso'
     template_name = 'formc.html'
     form_class = casoform
     success_url = reverse_lazy("Caso:casos")
+    login_url="inicio:login"      
 
-
-class Casoeditar(generic.UpdateView):
+class Casoeditar(LoginRequiredMixin,generic.UpdateView):
     model = Caso
     context_object_name = 'caso'
     template_name = 'formc.html'
     form_class = casoform
     success_url = reverse_lazy("Caso:casos")
+    login_url="inicio:login"      
 
-
-class Casoeliminar(generic.DeleteView):
+class Casoeliminar(LoginRequiredMixin,generic.DeleteView):
     model = Caso
     context_object_name = 'caso'
     template_name = 'deletec.html'
     form_class = casoform
     success_url = reverse_lazy("Caso:casos")
-# Create your views here.
+    login_url="inicio:login"
+
+# Cr login_url="inicio:login"eate your views here.
 
 
-class Casolistload(generic.ListView):
+class Casolistload(LoginRequiredMixin,generic.ListView):
     model = Caso
     template_name = 'loadc.html'
     context_object_name = 'caso'
+    login_url="inicio:login"
 
-
-class Casosearch(generic.ListView):
+class Casosearch(LoginRequiredMixin,generic.ListView):
     model = Detallecaso
     template_name = 'listdt.html'
     context_object_name = 'Detallecaso'
-
+    login_url="inicio:login"
     def get_queryset(self):
         query = self.request.GET.get('name')
         print(query)

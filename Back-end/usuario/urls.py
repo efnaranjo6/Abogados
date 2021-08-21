@@ -1,8 +1,8 @@
 from .views import Usuarioinsertar, Usuarioeditar, Usuarioeliminar, Usuarioview, Usuariolistload
 from django.urls import include, path
-from .views import UsuarioSList
+from .views import UsuarioSList, usuario_api_view
 urlpatterns = [
-    path('UsuR', UsuarioSList.as_view(), name='lu'),
+    path('Usuario/', usuario_api_view, name='apiusuario'),
     path('', Usuarioview.as_view(), name='usuarios'),
     path('loadusuario', Usuariolistload.as_view(), name='divloadU'),
     path('usuario/new/', Usuarioinsertar.as_view(), name='Insertar'),
