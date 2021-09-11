@@ -27,7 +27,7 @@ SECRET_KEY = '+9x51s_vilyzjarc*(t4*dpt^6g)*=^)b_08o=#fgi(mg)$z7t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DJANGO_DEBUG', default=False)
-
+APPEND_SLASH=False
 #ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOST',default=[]))
 
 
@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'usuario',
     'usuariocaso',
     'rest_framework',
-    
 ]
 
 MIDDLEWARE = [

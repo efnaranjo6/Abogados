@@ -1,6 +1,8 @@
+
+from base.models import BaseModel
 from django.db import models
 # Create your models here.
-class Rol(models.Model):
+class Rol(BaseModel):
   nombreRol = models.CharField(max_length=200)
   def __str__(self):
       return '{}'.format(self.nombreRol)

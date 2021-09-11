@@ -1,10 +1,12 @@
-from django.db import models
+
 
 from rol.models import Rol
 from usuario.models import usuario
+from base.models import BaseModel
+from django.db import models
 # Create your models here.
 
-class Detalleusuario(models.Model):
+class Detalleusuario(BaseModel):
     Rol = models.ForeignKey(Rol, on_delete=models.CASCADE)
     usuario = models.ForeignKey(usuario, on_delete=models.CASCADE)
     def __str__(self):

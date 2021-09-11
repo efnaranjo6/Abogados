@@ -1,19 +1,13 @@
 from django.db import models
 from persona.models import Persona
-from django.contrib.auth.models import User
+from base.models import BaseModel
 # Create your models here.
-class usuario(models.Model):
+class usuario(BaseModel):
     correoUsuario = models.CharField(max_length=200)
     contrasenaUsuario = models.CharField(max_length=200)
-    Persona = models.OneToOneField(Persona, on_delete=models.CASCADE)
+    Persona = models.ForeignKey(Persona, on_delete=models.CASCADE, verbose_name = 'inidicador de persona')
     def __str__(self):
         return '{}'.format(self.correoUsuario)
-    def save(self):
-      self.correoUsuario = self.correoUsuario
-      self.contrasenaUsuario = self.contrasenaUsuario
-      self.Persona = self.Persona
-      user = User.objects.create_user(
-          self.correoUsuario, self.correoUsuario, self.contrasenaUsuario)
-      super(usuario, self).save()
+   
 class Meta:
     verbose_name_plural = 'usuario'

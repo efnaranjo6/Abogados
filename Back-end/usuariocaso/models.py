@@ -1,8 +1,10 @@
-from django.db import models
+
 from caso.models import Caso
+from base.models import BaseModel
 from persona.models import Persona
+from django.db import models
 # Create your models here.
-class Usuariocaso(models.Model):
+class Usuariocaso(BaseModel):
     Caso = models.ForeignKey(Caso, on_delete=models.CASCADE)
     Persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
     def __str__(self):
