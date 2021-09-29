@@ -6,41 +6,42 @@ from rest_framework import status
 from rest_framework.response import Response
 from .serializers import UsuarioS
 from .models import usuario
-from rest_framework import generics
+from rest_framework import viewsets
 
-class UsuarioAPI(generics.ListAPIView):
+class UsuarioAPIV(viewsets.ModelViewSet):
     serializer_class = UsuarioS
-    def get_queryset(self):
-        return  usuario.objects.filter(state = True)
-class UsuarioCreateAPI(generics.CreateAPIView):
-    serializer_class = UsuarioS
-    def post(self,request):
+    def get_queryset(self,pk=None):
+        if pk is None:
+            return self.get_serializer().Meta.model.objects.filter(state = True)
+        return self.get_serializer().Meta.model.objects.filter(id=pk,state = True).first()
+
+    def list(self,request):
+        print('hola para listar Usuario')
+        Usuario_serializer = self.get_serializer(self.get_queryset(),many = True)  
+        return Response(Usuario_serializer.data,status = status.HTTP_200_OK)
+
+    def create(self,request):
         serializer = self.serializer_class(data = request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'message':'Usuario registrados correctamente'},status = status.HTTP_201_CREATED )
+            return Response({'message':'Usuario registrada correctamente'},status = status.HTTP_201_CREATED )
         return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
-class UsuarioRetrieveAPIView(generics.RetrieveAPIView):
-    serializer_class = UsuarioS
-    def get_queryset(self):
-        return self.get_serializer().Meta.model.objects.filter(state = True)
-class UsuarioUpdateAPIView(generics.UpdateAPIView):
-    serializer_class = UsuarioS
-    def get_queryset(self,pk):
-        return self.get_serializer().Meta.model.objects.filter(state = True).filter(id=pk).first()
-    def patch(self,request,pk=None):
-        if self.get_queryset(pk):
-            persona_serializer=self.serializer_class(self.get_queryset(pk))
-            return Response(persona_serializer.data,status = status.HTTP_200_OK) 
-        return Response({"message":"no existe Usuario"},status = status.HTTP_400_BAD_REQUEST)   
-    def put(self,request,pk=None):
-        if self.get_queryset(pk):
-            persona_serializer=self.serializer_class(self.get_queryset(pk),data = request.data)
-            if persona_serializer.is_valid():
-                persona_serializer.save()
-                return Response(persona_serializer.data,status = status.HTTP_200_OK) 
-            return Response(persona_serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
+    def update(self,request,pk=None):
+        self.get_queryset(pk)
+        Usuario_seralizer= self.serializer_class(self.get_queryset(pk),data = request.data)
+        if Usuario_seralizer.is_valid():
+            Usuario_seralizer.save()
+            return Response(Usuario_seralizer.data,status =status.HTTP_200_OK)
+        return Response(Usuario_seralizer.errors, status = status.HTTP_400_BAD_REQUEST)
+
+    def destroy(self,request,pk=None):
+        Usuario= self.get_queryset().filter(id=pk).first()
+        if Usuario:
+            Usuario.state=False
+            Usuario.save()
+            return Response({"message":"Usuario Eliminado correctamente!"},status = status.HTTP_200_OK)
+        return Response({"message":"no existe Usuario"},status = status.HTTP_400_BAD_REQUEST)
 class Usuarioview(LoginRequiredMixin,generic.ListView):
     model = usuario
     template_name = 'listu.html'

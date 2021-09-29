@@ -6,54 +6,42 @@ from .serializers import RolS
 from .models import Rol
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework import generics
+from rest_framework import viewsets
 
-class RolAPI(generics.ListAPIView):
+class RolAPIV(viewsets.ModelViewSet):
     serializer_class = RolS
-    def get_queryset(self):
-        return  Rol.objects.filter(state = True)
-class RolCreateAPI(generics.CreateAPIView):
-    serializer_class = RolS
-    def post(self,request):
+    def get_queryset(self,pk=None):
+        if pk is None:
+            return self.get_serializer().Meta.model.objects.filter(state = True)
+        return self.get_serializer().Meta.model.objects.filter(id=pk,state = True).first()
+
+    def list(self,request):
+        print('hola para listar Rol')
+        Rol_serializer = self.get_serializer(self.get_queryset(),many = True)  
+        return Response(Rol_serializer.data,status = status.HTTP_200_OK)
+
+    def create(self,request):
         serializer = self.serializer_class(data = request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'message':'rol registrados correctamente'},status = status.HTTP_201_CREATED )
+            return Response({'message':'Rol registrada correctamente'},status = status.HTTP_201_CREATED )
         return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
-class RolRetrieveAPIView(generics.RetrieveAPIView):
-    serializer_class = RolS
-    def get_queryset(self):
-        return self.get_serializer().Meta.model.objects.filter(state = True)
-class RolUpdateAPIView(generics. UpdateAPIView):
-    serializer_class = RolS
-    def get_queryset(self,pk):
-        return self.get_serializer().Meta.model.objects.filter(state = True).filter(id=pk).first()
-    def patch(self,request,pk=None):
-        if self.get_queryset(pk):
-            Rol_serializer=self.serializer_class(self.get_queryset(pk))
-            return Response(Rol_serializer.data,status = status.HTTP_200_OK) 
-        return Response({"message":"no existe Rol"},status = status.HTTP_400_BAD_REQUEST)   
-    def put(self,request,pk=None):
-        if self.get_queryset(pk):
-            Rol_serializer=self.serializer_class(self.get_queryset(pk),data = request.data)
-            if Rol_serializer.is_valid():
-                Rol_serializer.save()
-                return Response(Rol_serializer.data,status = status.HTTP_200_OK) 
-            return Response(Rol_serializer.errors, status = status.HTTP_400_BAD_REQUEST)
-class RolDestroyAPIView(generics.DestroyAPIView):
-    serializer_class = RolS
-    def get_queryset(self):
-        return self.get_serializer( ).Meta.model.objects.filter(state = True)
-    def delete(self,request,pk=None):
+
+    def update(self,request,pk=None):
+        self.get_queryset(pk)
+        Rol_seralizer= self.serializer_class(self.get_queryset(pk),data = request.data)
+        if Rol_seralizer.is_valid():
+            Rol_seralizer.save()
+            return Response(Rol_seralizer.data,status =status.HTTP_200_OK)
+        return Response(Rol_seralizer.errors, status = status.HTTP_400_BAD_REQUEST)
+
+    def destroy(self,request,pk=None):
         Rol= self.get_queryset().filter(id=pk).first()
         if Rol:
             Rol.state=False
             Rol.save()
-            return Response({"message":"rol Eliminado correctamente!"},status = status.HTTP_200_OK)
+            return Response({"message":"Rol Eliminado correctamente!"},status = status.HTTP_200_OK)
         return Response({"message":"no existe Rol"},status = status.HTTP_400_BAD_REQUEST)
-
-
-
 class Rolview(LoginRequiredMixin,generic.ListView):
     model = Rol
     template_name = 'listr.html'
