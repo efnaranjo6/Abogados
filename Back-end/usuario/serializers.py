@@ -1,12 +1,10 @@
 
 from persona.serializers import PersonaSeriales
 from rest_framework import serializers
-from .models import usuario
+from .models import User
 
 
 class UsuarioS(serializers.ModelSerializer):
-
-    
     class Meta:
-        model = usuario
+        model = User
         fields = '__all__'

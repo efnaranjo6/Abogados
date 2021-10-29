@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     'caso',
     'detallecaso',
@@ -50,9 +52,8 @@ INSTALLED_APPS = [
     'tipocaso',
     'usuario',
     'usuariocaso',
-    'rest_framework',
 ]
-
+AUTH_USER_MODEL = 'usuario.User'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

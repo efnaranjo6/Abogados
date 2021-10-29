@@ -26,9 +26,7 @@
                     <td class="serial"> {{item.id}}</td>
 
                     <td> <span class="name">{{item.correoUsuario}}</span> </td>
-                    <td>
-                        <span class="name">{{item.Persona}}</span>
-                    </td>
+
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                             onclick="url('{% url 'Usuario:Eliminar' item.id  %}','{% url 'Usuario:Editar' item.id  %}','{% url 'detalleusuario:Insertar' %}','{{item.id}}')">

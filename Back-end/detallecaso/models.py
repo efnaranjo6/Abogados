@@ -1,6 +1,6 @@
 from django.db import models
 from caso.models import Caso
-from usuario.models import usuario
+from usuario.models import User
 from base.models import BaseModel
 
 # Create your models here.
@@ -9,9 +9,9 @@ from base.models import BaseModel
 class Detallecaso(BaseModel):
     descripccion = models.CharField(max_length=200)
     porcentaje = models.CharField(max_length=200)
-    usuario = models.ForeignKey(usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     Caso = models.ForeignKey(Caso, on_delete=models.CASCADE)
     def __str__(self):
-        return '{}'.format(self.Usuario)
+        return '{}'.format(self.usuario)
 class Meta:
     verbose_name_plural = 'Casos'

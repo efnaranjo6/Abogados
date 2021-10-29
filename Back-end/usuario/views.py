@@ -5,15 +5,15 @@ from .forms import usuarioform
 from rest_framework import status
 from rest_framework.response import Response
 from .serializers import UsuarioS
-from .models import usuario
+from .models import User
 from rest_framework import viewsets
 
 class UsuarioAPIV(viewsets.ModelViewSet):
     serializer_class = UsuarioS
     def get_queryset(self,pk=None):
         if pk is None:
-            return self.get_serializer().Meta.model.objects.filter(state = True)
-        return self.get_serializer().Meta.model.objects.filter(id=pk,state = True).first()
+            return self.get_serializer().Meta.model.objects.filter(is_active = True)
+        return self.get_serializer().Meta.model.objects.filter(id=pk,is_active = True).first()
 
     def list(self,request):
         print('hola para listar Usuario')
@@ -43,26 +43,26 @@ class UsuarioAPIV(viewsets.ModelViewSet):
             return Response({"message":"Usuario Eliminado correctamente!"},status = status.HTTP_200_OK)
         return Response({"message":"no existe Usuario"},status = status.HTTP_400_BAD_REQUEST)
 class Usuarioview(LoginRequiredMixin,generic.ListView):
-    model = usuario
+    model = User
     template_name = 'listu.html'
     context_object_name = 'usu'
     login_url="inicio:login"
 class Usuarioinsertar(LoginRequiredMixin,generic.CreateView):
-    model = usuario
+    model = User
     context_object_name = 'usu'
     template_name = 'formu.html'
     form_class = usuarioform
     success_url = reverse_lazy("Usuario:usuarios")
     login_url="inicio:login"
 class Usuarioeditar(LoginRequiredMixin,generic.UpdateView):
-    model = usuario
+    model = User
     context_object_name = 'usu'
     template_name = 'formu.html'
     form_class = usuarioform
     success_url = reverse_lazy("Usuario:usuarios")
     login_url="inicio:login"
 class Usuarioeliminar(LoginRequiredMixin,generic.DeleteView):
-    model = usuario
+    model = User
     context_object_name = 'usu'
     template_name = 'deleteu.html'
     form_class = usuarioform
@@ -70,7 +70,7 @@ class Usuarioeliminar(LoginRequiredMixin,generic.DeleteView):
     login_url="inicio:login"
 # Create your views here.
 class Usuariolistload(LoginRequiredMixin,generic.ListView):
-    model = usuario
+    model = User
     template_name = 'loadu.html'
     context_object_name = 'usu'
     login_url="inicio:login"

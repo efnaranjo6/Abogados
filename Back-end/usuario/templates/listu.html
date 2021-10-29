@@ -1,16 +1,16 @@
 {% extends 'inicio.html' %}
 {% block contenido %}
 <div class="contendhere">
-<div class="panel panel-primary">
+    <div class="panel panel-primary">
     <br>
     <div class="panel-heading">
-        <a class="btn btn-outline-primary float-right" href="{% url 'Usuario:Insertar' %}"><i class="bi bi-plus-circle-fill" style="font-size: 1.2rem;"></i>&nbsp; Agregar</a>
+        <a class="btn btn-outline-primary float-right" href="{% url 'Usuario:Insertart' %}"><i class="bi bi-plus-circle-fill" style="font-size: 1.2rem;"></i>&nbsp; Agregar</a>
         <h1>
           <i class="bi bi-person-lines-fill"></i>&nbsp;   Usuarios
         </h1>
     </div>
-</div>
-<div class="panel-body col-md-10 container-md">
+    </div>
+    <div class="panel-body col-md-10 container-md">
     <div class="table-stats order-table ov-h">
         <table class="table ">
             <thead>
@@ -29,11 +29,11 @@
 
                     <td> <span class="name">{{item.correoUsuario}}</span> </td>
                     <td>
-                        <span class="name">{{item.Persona}}</span>
+                        
                     </td>
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                            onclick="url('{% url 'Usuario:Eliminar' item.id  %}','{% url 'Usuario:Editar' item.id  %}','{% url 'detalleusuario:Insertar' %}',{{item.id}})">
+                            onclick="url('{% url 'Usuario:Eliminar' item.id  %}','{% url 'Usuario:Editar' item.id  %}','{% url 'Detalleusuario:Insertar' %}',{{item.id}})">
                             <i class="bi bi-wrench"></i>&nbsp; Acciones
                         </button>
                     </td>
@@ -43,10 +43,8 @@
             </tbody>
         </table>
     </div> <!-- /.table-stats -->
-</div>
-<div class="modal"  id="exampleModal" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+    </div>
+    <div class="modal"  id="exampleModal" tabindex="-1" role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -62,7 +60,7 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 </div>
 <script>
   

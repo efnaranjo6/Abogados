@@ -4,7 +4,7 @@ from rest_framework.response import Response
 
 from .serializers import UsuariocasoS
 from .models import Usuariocaso
-
+from rest_framework import generics
 
         
 class UsuariocasoAPI(generics.ListAPIView):
