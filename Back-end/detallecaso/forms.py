@@ -5,15 +5,13 @@ from .models import Detallecaso
 class detallecasoform(forms.ModelForm):
     class Meta:
         model = Detallecaso
-        fields = ['descripccion', 'porcentaje', 'usuario', 'Caso']
+        fields = ['descripccion', 'porcentaje', 'Caso']
         labels = {'correoUsuario ': 'ingrese la  descripccion ',
                   'porcentaje ': 'ingrese el  porcentaje',
-                  'usuario ': 'seleccione el usuario',
                   'Caso ': 'seleccione el caso'
                   }
         widget = {'correoUsuario': forms.TextInput(),
                   'porcentaje': forms.TextInput(),
-                  'usuario': forms.TextInput(),
                   'Caso': forms.TextInput()
                   }
 
