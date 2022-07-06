@@ -54,7 +54,7 @@ class Rolinsertar(LoginRequiredMixin,generic.CreateView):
     context_object_name = 'rol'
     template_name = 'formr.html'
     form_class = rolform
-    success_url = reverse_lazy("rol:roles")
+    success_url = reverse_lazy("Rol:roles")
     login_url="inicio:login"
 
 
@@ -63,7 +63,7 @@ class Roleditar(LoginRequiredMixin,generic.UpdateView):
     context_object_name = 'rol'
     template_name = 'formr.html'
     form_class = rolform
-    success_url = reverse_lazy("rol:roles")
+    success_url = reverse_lazy("Rol:roles")
     login_url="inicio:login"
 
 
@@ -72,7 +72,7 @@ class Roleliminar(LoginRequiredMixin,generic.DeleteView):
     context_object_name = 'rol'
     template_name = 'deleter.html'
     form_class = rolform
-    success_url = reverse_lazy("rol:roles")
+    success_url = reverse_lazy("Rol:roles")
     login_url="inicio:login"
 
 

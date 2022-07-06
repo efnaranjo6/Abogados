@@ -4,8 +4,7 @@
     <br>
     <div class="panel-heading">
 
-        <a class="btn btn-outline-primary float-right" href="{% url 'Caso:Insertar' %}"><i class="bi bi-plus-circle-fill " style="font-size: 1.2rem;"></i>&nbsp; Agregar caso</a>
-        
+         
         <h1>
            <i class="bi bi-bar-chart-steps"></i>&nbsp; Casos
         </h1>
@@ -38,7 +37,7 @@
                     </td>
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                            onclick="url('{% url 'Caso:Eliminar' item.id  %}','{% url 'Caso:Editar' item.id  %}','{% url 'detallecaso:Insertar' %}','{{item.id}}')">
+                            onclick="url('{% url 'Caso:Eliminar' item.id  %}','{% url 'Caso:Editar' item.id  %}','{% url 'Detallecaso:Insertar' %}','{{item.id}}')">
                              <i class="bi bi-wrench"></i>&nbsp; Acciones
                              
                         </button>
